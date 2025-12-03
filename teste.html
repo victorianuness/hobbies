@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Site de Hobbies</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Nunito:wght@400;600&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --nav-bg: #fff;        /* Menu branco para combinar com tudo */
+            --accent: #9C27B0;     
+            --active-btn: #D1C4E9; 
+            --text-color: #555;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth; /* Rolagem suave ao clicar no menu */
+        }
+
+        body {
+            font-family: 'Nunito', sans-serif;
+            color: var(--text-color);
+        }
+
+        h1, h2, h3, .logo-text {
+            font-family: 'Dancing Script', cursive;
+            color: #5e3c58;
+        }
+
+        /* --- Menu de Navegação --- */
+        nav {
+            background-color: var(--nav-bg);
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .menu-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #5e3c58;
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.4rem;
+            padding: 5px 15px;
+            border-radius: 20px;
+            transition: all 0.3s;
+        }
+
+        nav a:hover {
+            background-color: var(--active-btn);
+            color: #fff;
+            transform: translateY(-2px);
+        }
+
+        /* --- Estrutura Geral das Seções --- */
+        section {
+            padding: 80px 20px;
+            min-height: 90vh; /* Ocupa quase a tela toda */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center; /* Centraliza verticalmente */
+        }
+
+        /* --- CORES DE FUNDO POR SEÇÃO (AQUI ESTÁ A MUDANÇA) --- */
+        
+        #home {
+            background-color: #FDF5F5; /* Rosa bem clarinho original */
+        }
+
+        #sobre-mim {
+            background-color: #FFF8E1; /* Amarelo/Creme pastel */
+        }
+
+        #filmes {
+            background-color: #F3E5F5; /* Lilás suave */
+        }
+
+        #series {
+            background-color: #E3F2FD; /* Azul bebê suave */
+        }
+
+        #musica {
+            background-color: #E8F5E9; /* Verde menta suave */
+        }
+
+        #fotos {
+            background-color: #FCE4EC; /* Rosa um pouco mais forte */
+        }
+
+        /* ----------------------------------------------------- */
+
+        .section-title {
+            font-size: 3.5rem;
+            margin-bottom: 40px;
+            text-align: center;
+            color: #5e3c58;
+        }
+
+        /* --- Estilo Polaroid --- */
+        .polaroid-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            justify-content: center;
+            max-width: 1200px;
+        }
+
+        .polaroid {
+            background-color: #fff;
+            padding: 12px 12px 50px 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+            position: relative;
+            width: 240px;
+            text-align: center;
+            transform: rotate(0deg); /* Começa reto */
+        }
+
+        /* Efeito divertido: inclina cada polaroid para um lado diferente */
+        .polaroid:nth-child(odd) { transform: rotate(2deg); }
+        .polaroid:nth-child(even) { transform: rotate(-2deg); }
+
+        .polaroid:hover {
+            transform: scale(1.1) rotate(0deg) !important; /* Fica reto e cresce ao passar o mouse */
+            z-index: 10;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+
+        .polaroid img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            background-color: #eee;
+        }
+
+        .polaroid-caption {
+            position: absolute;
+            bottom: 10px;
+            left: 0;
+            width: 100%;
+            text-align: center;
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.6rem;
+            color: #333;
+        }
+
+        /* --- Layouts Específicos --- */
+        .intro-text h1 {
+            font-size: 4rem;
+            line-height: 1.2;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .home-content, .sobre-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+            max-width: 1000px;
+        }
+
+        .large-image {
+            width: 300px;
+            height: 400px;
+            background-color: #ddd;
+            border-radius: 20px;
+            box-shadow: 10px 10px 0px rgba(94, 60, 88, 0.1); /* Sombra sólida decorativa */
+        }
+
+        .text-content {
+            flex: 1;
+            text-align: justify;
+            line-height: 1.8;
+            font-size: 1.1rem;
+        }
+
+        /* Layout Música/Fotos */
+        .music-layout {
+            display: flex;
+            align-items: center;
+            gap: 60px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .circle-profile {
+            width: 250px;
+            height: 250px;
+            background-color: #ccc;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 5px solid #fff;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        .grid-quadrados {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+        .quadrado {
+            background: rgba(255,255,255,0.6);
+            padding: 10px;
+            width: 140px;
+            height: 140px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px;
+        }
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .home-content, .sobre-content, .music-layout {
+                flex-direction: column;
+                text-align: center;
+            }
+            .section-title { font-size: 2.5rem; }
+            .intro-text h1 { font-size: 3rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="menu-container">
+            <a href="#home">Hobbies</a>
+            <a href="#sobre-mim">Sobre mim</a>
+            <a href="#filmes">Filmes</a>
+            <a href="#series">Séries</a>
+            <a href="#musica">Música</a>
+            <a href="#fotos">Fotos</a>
+        </div>
+    </nav>
+
+    <section id="home">
+        <div class="home-content">
+            <div class="intro-text">
+                <h1>Bem-vindo(a) ao<br>Meu site de<br>Hobbies!</h1>
+            </div>
+            <div class="large-image" style="background-image: url('https://placehold.co/300x400/e0e0e0/555?text=Capa'); background-size: cover;"></div>
+        </div>
+    </section>
+
+    <section id="sobre-mim">
+        <div class="sobre-content">
+            <div class="large-image" style="background-image: url('https://placehold.co/300x400/e0e0e0/555?text=Eu'); background-size: cover;"></div>
+            <div class="text-content">
+                <h2 class="section-title" style="text-align: left;">Sobre Mim</h2>
+                <p>
+                    Olá! Este é um espaço dedicado às coisas que eu mais amo.
+                    Aqui você vai encontrar um pouco da minha personalidade através dos meus filmes, séries e músicas favoritas.
+                    Sinta-se à vontade para explorar!
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section id="filmes">
+        <h2 class="section-title">Filmes Favoritos</h2>
+        <div class="polaroid-container">
+            <div class="polaroid">
+                <img src="https://placehold.co/240x220?text=Cena+1" alt="Filme 1">
+                <div class="polaroid-caption">Drama</div>
+            </div>
+            <div class="polaroid">
+                <img src="https://placehold.co/240x220?text=Cena+2" alt="Filme 2">
+                <div class="polaroid-caption">Comédia</div>
+            </div>
+            <div class="polaroid">
+                <img src="https://placehold.co/240x220?text=Cena+3" alt="Filme 3">
+                <div class="polaroid-caption">Romance</div>
+            </div>
+            <div class="polaroid">
+                <img src="https://placehold.co/240x220?text=Cena+4" alt="Filme 4">
+                <div class="polaroid-caption">Ação</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="series">
+        <h2 class="section-title">Séries que Amo</h2>
+        <div class="polaroid-container">
+            <div class="polaroid">
+                <img src="https://placehold.co/240x220?text=Serie+1" alt="Serie 1">
+                <div class="polaroid-caption">Maratona 1</div>
+            </div>
+            <div class="polaroid">
+                <img src="https://placehold.co/240x220?text=Serie+2" alt="Serie 2">
+                <div class="polaroid-caption">Sitcom</div>
+            </div>
+            <div class="polaroid">
+                <img src="https://placehold.co/240x220?text=Serie+3" alt="Serie 3">
+                <div class="polaroid-caption">Suspense</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="musica">
+        <h2 class="section-title">No meu fone</h2>
+        <div class="music-layout">
+            <div class="circle-profile">
+                <span>Spotify</span>
+            </div>
+            
+            <div class="grid-quadrados">
+                <div class="quadrado">Top 1</div>
+                <div class="quadrado">Top 2</div>
+                <div class="quadrado">Top 3</div>
+                <div class="quadrado">Top 4</div>
+            </div>
+        </div>
+        <p style="margin-top:20px; font-weight:bold; color:#555;">ACESSE MEU PERFIL DO SPOTIFY</p>
+    </section>
+
+     <section id="fotos">
+        <h2 class="section-title">Galeria VSCO</h2>
+        <div class="music-layout">
+            <div class="grid-quadrados">
+                <div class="polaroid" style="width: 180px; transform: rotate(-3deg);">
+                    <img src="https://placehold.co/180x160" style="height: 160px;">
+                </div>
+                <div class="polaroid" style="width: 180px; transform: rotate(3deg);">
+                    <img src="https://placehold.co/180x160" style="height: 160px;">
+                </div>
+            </div>
+
+            <div style="text-align: center;">
+                <div class="circle-profile">
+                    <span>VSCO</span>
+                </div>
+                <p style="margin-top: 10px;">MEUS CLIQUES</p>
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>
