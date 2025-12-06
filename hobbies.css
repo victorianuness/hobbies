@@ -260,56 +260,61 @@ h1 {
     max-width: 70%;
     height: auto;
 }
+.filmes-text{
+    font-family: 'Perfect', sans-serif;
+    font-size: 1.2rem;
+    color: #5e3c58;
+    margin-bottom: 20px;
+    text-align: center;
+    width: 100%;
+    margin-top: -28px;
+}
+
+.series-text{
+    font-family: 'Perfect', sans-serif;
+    font-size: 1.2rem;
+    color: #5e3c58;
+    margin-bottom: 20px;
+    text-align: center;
+    width: 100%;
+    margin-top: -28px;
+}
 /* Fim da estilização do Sobre Mim*/
 
-/*Estilização dos Filmes*/
+/*Estilização dos Filmes e series*/
 /*Estilo Polaroid*/
-/*Estilização dos Filmes*/
-/*Estilo Polaroid - CORRIGIDO FINAL */
 
-/* 1. CONTAINER: Aumenta padding para evitar que o card expandido seja cortado */
+
 .polaroid-container {
     display: flex;
     flex-wrap: wrap;
     gap: 40px;
     justify-content: center;
     max-width: 1200px;
-    padding-bottom: 200px; /* Adiciona espaço extra na parte de baixo */
+    padding-bottom: 200px; 
 }
 
-/* 2. POLAROID PRINCIPAL: Define altura inicial, transição e esconde o overflow */
+
 .polaroid {
     background-color: #fff;
     padding: 12px 12px 50px 12px;
     box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-    
-    /* CRÍTICO: Transição em todas as propriedades relevantes */
     transition: transform 0.3s ease, max-height 0.5s ease-out, box-shadow 0.3s; 
-    
     position: relative;
     width: 240px;
     text-align: center;
-    
-    /* ALTURA INICIAL: Suficiente para a imagem e legenda, mas pequena o bastante para esconder o texto extra */
     max-height: 350px; 
-    overflow: hidden; /* CRUCIAL: Esconde o conteúdo extra */
-    
+    overflow: hidden; 
     transform: rotate(0deg); 
 }
 
-/* Rotações Iniciais */
 .polaroid:nth-child(odd) { transform: rotate(2deg); }
 .polaroid:nth-child(even) { transform: rotate(-2deg); }
 
 .polaroid:hover {
-    /* CORREÇÃO DO PROBLEMA 1 e 3: Removendo scale(1.1) para evitar quebras de layout e sobreposição. */
-    transform: rotate(0deg) translateY(-10px); /* Tira a rotação e levanta suavemente */
-    
+    transform: rotate(0deg) translateY(-10px);
     z-index: 10;
     box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-    
-    /* CORREÇÃO DO PROBLEMA 2: Aumentar Max-Height para revelar todo o texto */
-    /* Use um valor muito grande para garantir que o texto não seja cortado */
     max-height: 1200px; 
 }
 
@@ -320,37 +325,225 @@ h1 {
     background-color: #eee;
 }
 
-/* 3. LEGENDA: Retirar posição absoluta para que ela empurre o texto extra para baixo */
+
 .polaroid-caption {
-    position: relative; /* Mudar de absolute para relative/static */
+    position: relative; 
     margin-top: 5px; 
-    margin-bottom: 10px; /* Espaço para separar da descrição extra */
-    
+    margin-bottom: 10px; 
     width: 100%;
     text-align: center;
-    font-family: 'Dancing Script', cursive; /* Mantenha sua fonte */
+    font-family:"perfect"; 
     font-size: 1.6rem;
     color: #333;
 }
-
-/* 4. TEXTO EXTRA: Controla a transição de Opacidade e Altura */
 .polaroid-extra-text {
-    /* Estado inicial: Escondido e sem ocupar espaço */
     max-height: 0; 
     opacity: 0; 
     padding: 0 10px; 
-    margin-top: 5px; /* Ajuste fino */
+    margin-top: 5px; 
     text-align: justify;
-    color: var(--text-color); /* Usando a variável global */
+    color: var(--text-color); 
     font-size: 0.9em;
-    
-    /* ADICIONAR TRANSIÇÃO DE REVELAÇÃO */
     transition: max-height 0.4s ease-in-out, opacity 0.4s ease-in-out, padding 0.4s ease-in-out;
 }
-
-/* ESTADO HOVER: REVELAR O TEXTO EXTRA */
 .polaroid:hover .polaroid-extra-text {
-    max-height: 700px; /* Grande o suficiente para o texto */
+    max-height: 700px; 
     opacity: 1; 
-    padding: 10px 10px; /* Adiciona padding para o texto não ficar colado */
+    padding: 10px 10px; 
 }
+
+.music-layout {
+            display: flex;
+            align-items: center;
+            gap: 60px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .circle-profile {
+            width: 250px;
+            height: 250px;
+            background-color: #ccc;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 5px solid #fff;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        .grid-quadrados {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+        .quadrado {
+            background: rgba(255,255,255,0.6);
+            padding: 10px;
+            width: 140px;
+            height: 140px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px;
+        }
+/* --- ESTILOS PARA A SEÇÃO DE MÚSICA (#musica) --- */
+
+.music-layout {
+    display: flex;
+    align-items: center;
+    gap: 60px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.photo-profile {
+    width: 250px;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+
+}
+
+.grid-quadrados {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.quadrado {
+    /* CORREÇÃO APLICADA AQUI: */
+    background: rgba(255, 255, 255, 0.6);
+    padding: 10px;
+    width: 160px;
+    height: 200px;
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+    justify-content: flex-start; 
+
+    text-align: center; 
+    font-family: 'Perfect', sans-serif;
+    color: #5e3c58;
+    font-size: 0.85rem; 
+    overflow: hidden;
+}
+
+.quadrado img {
+    /* Define o tamanho da imagem para caber no quadrado */
+    width: 100%; 
+    height: 120px;
+    object-fit: cover;
+   
+    margin-bottom: 8cqmin; /* Espaço entre a imagem e o texto */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.musica-text {
+    font-family: 'Perfect', sans-serif;
+    font-size: 1.2rem;
+    color: #5e3c58;
+    margin-bottom: 20px;
+    text-align: center;
+    width: 100%;
+    margin-bottom: 8cqmin;
+}
+
+/* Galeria VSCO*/
+/*.foto-cs {
+    position: absolute; /* Posição absoluta em relação ao #filmes 
+    top: 1700px;  Ajuste para descer a partir do topo da seção 
+    left: 150px; 
+    
+    /* Z-index para controle de camadas, se necessário 
+    z-index: 5; 
+}
+
+.foto-cs img {
+    /* Define o tamanho pequeno que você deseja para a imagem 
+    width: 100px; /* Exemplo: 100px de largura 
+    height: auto; 
+    display: block; /* Para garantir que o bloco funcione corretamente 
+}*/
+
+.fotos-text{
+    font-family: 'Perfect', sans-serif;
+    font-size: 1.2rem;
+    color: #5e3c58;
+    margin-bottom: 20px;
+    text-align: center;
+    width: 100%;
+    margin-top: -28px;
+}
+
+.vsco-profile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px; /* espaço entre imagem e texto */
+    margin-bottom: 10px;
+}
+/* --- Estilos para a Seção Fotos (#fotos) --- */
+#fotos {
+    /* Mantenha o display: flex; flex-direction: column; align-items: center; */
+    /* Para centralizar o título e o texto de "Meus Cliques" */
+}
+
+/* 1. Container Principal (music-layout) */
+.music-layout {
+    display: flex; /* Alinha o bloco da câmera e o grid de fotos lado a lado */
+    align-items: center; /* Alinha os blocos verticalmente no centro */
+    justify-content: center;
+    gap: 50px; /* Espaço entre a câmera e as fotos */
+    max-width: 1200px;
+    width: 100%;
+}
+
+/* 2. Bloco da Câmera e Link */
+.vsco-camera-block {
+    display: flex;
+    flex-direction: column; /* CRUCIAL: Empilha a imagem e o link */
+    align-items: center; /* CRUCIAL: Centraliza a imagem e o link horizontalmente */
+    text-align: center;
+    max-width: 300px; /* Limita a largura do bloco */
+}
+
+/* 3. Estilo da Imagem da Câmera */
+.vsco-profile img {
+    width: 200px; /* Defina o tamanho que você deseja para a câmera */
+    height: auto;
+    display: block;
+    margin-bottom: 10px;
+}
+
+/* 4. Estilo do Botão/Link */
+.btn-vsco { /* Mudei de .btn para .btn-vsco para evitar conflito com outros estilos */
+    text-decoration: none;
+    font-family: 'Perfect', sans-serif;
+    color: #5e3c58;
+    font-size: 1.1rem;
+    font-weight: bold;
+    padding: 8px 15px;
+    border: 2px solid #5e3c58;
+    border-radius: 20px;
+    transition: background-color 0.3s;
+}
+
+.btn-vsco:hover {
+    background-color: #E3F2FD; /* Cor de hover suave */
+}
+
+/* 5. Ajuste no vsco-profile (se for só a imagem) */
+.vsco-profile {
+    display: block; /* Garante que a div não interfira no alinhamento */
+    margin-bottom: 10px;
+}
+/* Responsividade */
+        @media (max-width: 768px) {
+            .home-content, .sobre-content, .music-layout {
+                flex-direction: column;
+                text-align: center;
+            }
+            .section-title { font-size: 2.5rem; }
+            .intro-text h1 { font-size: 3rem; }
+        }
