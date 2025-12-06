@@ -143,9 +143,9 @@ section {
 /*estilização da home*/
 h1 {
     font-family: "Christmas";
-    font-size: 2.5rem;
+    font-size: 1.5rem;
     color: #5e3c58;
-    margin-bottom: 20px;
+    margin-bottom: 50px;
     text-align: left;
 }
 
@@ -155,12 +155,12 @@ h5 {
 }
 
 .hobbies-content-left {
-    max-width: 45;
+    max-width: 90%;
     text-align: left;
 }
 
 .hobbies-image-right img {
-    max-width: 45%;
+    max-width: 600px;
     height: auto;
     text-align: right;
 }
@@ -170,6 +170,7 @@ h5 {
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
+    gap: 20px;
 }
 
 .hobbies-image-right {
@@ -177,10 +178,6 @@ h5 {
     text-align: right;
 }
 
-.hobbies-image-right img {
-    max-width: 70%;
-    height: auto;
-}
 
 /*fim da estilização da home*/
 
@@ -262,4 +259,98 @@ h1 {
 #sobremim .container img {
     max-width: 70%;
     height: auto;
+}
+/* Fim da estilização do Sobre Mim*/
+
+/*Estilização dos Filmes*/
+/*Estilo Polaroid*/
+/*Estilização dos Filmes*/
+/*Estilo Polaroid - CORRIGIDO FINAL */
+
+/* 1. CONTAINER: Aumenta padding para evitar que o card expandido seja cortado */
+.polaroid-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    justify-content: center;
+    max-width: 1200px;
+    padding-bottom: 200px; /* Adiciona espaço extra na parte de baixo */
+}
+
+/* 2. POLAROID PRINCIPAL: Define altura inicial, transição e esconde o overflow */
+.polaroid {
+    background-color: #fff;
+    padding: 12px 12px 50px 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    
+    /* CRÍTICO: Transição em todas as propriedades relevantes */
+    transition: transform 0.3s ease, max-height 0.5s ease-out, box-shadow 0.3s; 
+    
+    position: relative;
+    width: 240px;
+    text-align: center;
+    
+    /* ALTURA INICIAL: Suficiente para a imagem e legenda, mas pequena o bastante para esconder o texto extra */
+    max-height: 350px; 
+    overflow: hidden; /* CRUCIAL: Esconde o conteúdo extra */
+    
+    transform: rotate(0deg); 
+}
+
+/* Rotações Iniciais */
+.polaroid:nth-child(odd) { transform: rotate(2deg); }
+.polaroid:nth-child(even) { transform: rotate(-2deg); }
+
+.polaroid:hover {
+    /* CORREÇÃO DO PROBLEMA 1 e 3: Removendo scale(1.1) para evitar quebras de layout e sobreposição. */
+    transform: rotate(0deg) translateY(-10px); /* Tira a rotação e levanta suavemente */
+    
+    z-index: 10;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    
+    /* CORREÇÃO DO PROBLEMA 2: Aumentar Max-Height para revelar todo o texto */
+    /* Use um valor muito grande para garantir que o texto não seja cortado */
+    max-height: 1200px; 
+}
+
+.polaroid img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    background-color: #eee;
+}
+
+/* 3. LEGENDA: Retirar posição absoluta para que ela empurre o texto extra para baixo */
+.polaroid-caption {
+    position: relative; /* Mudar de absolute para relative/static */
+    margin-top: 5px; 
+    margin-bottom: 10px; /* Espaço para separar da descrição extra */
+    
+    width: 100%;
+    text-align: center;
+    font-family: 'Dancing Script', cursive; /* Mantenha sua fonte */
+    font-size: 1.6rem;
+    color: #333;
+}
+
+/* 4. TEXTO EXTRA: Controla a transição de Opacidade e Altura */
+.polaroid-extra-text {
+    /* Estado inicial: Escondido e sem ocupar espaço */
+    max-height: 0; 
+    opacity: 0; 
+    padding: 0 10px; 
+    margin-top: 5px; /* Ajuste fino */
+    text-align: justify;
+    color: var(--text-color); /* Usando a variável global */
+    font-size: 0.9em;
+    
+    /* ADICIONAR TRANSIÇÃO DE REVELAÇÃO */
+    transition: max-height 0.4s ease-in-out, opacity 0.4s ease-in-out, padding 0.4s ease-in-out;
+}
+
+/* ESTADO HOVER: REVELAR O TEXTO EXTRA */
+.polaroid:hover .polaroid-extra-text {
+    max-height: 700px; /* Grande o suficiente para o texto */
+    opacity: 1; 
+    padding: 10px 10px; /* Adiciona padding para o texto não ficar colado */
 }
