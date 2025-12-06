@@ -547,3 +547,97 @@ h1 {
             .section-title { font-size: 2.5rem; }
             .intro-text h1 { font-size: 3rem; }
         }
+        /* --- MEDIA QUERY PARA TELAS PEQUENAS (Max 768px) --- */
+@media (max-width: 768px) {
+    
+    /* 1. LAYOUT PRINCIPAL E TÍTULOS */
+    section {
+        padding: 40px 10px; /* Reduz o padding vertical nas seções */
+        min-height: auto; /* Remove altura mínima para seções menores */
+    }
+    
+    h1 {
+        font-size: 2.5em; /* Diminui o tamanho dos títulos principais */
+    }
+
+    /* 2. MENU DE NAVEGAÇÃO */
+    .menu-container {
+        gap: 10px;
+        justify-content: space-around;
+        padding: 5px 0;
+    }
+    nav a {
+        font-size: 1rem; /* Diminui o tamanho da fonte do menu */
+        padding: 5px 8px;
+    }
+
+    /* 3. SEÇÃO #hobbies (Home) e #sobremim */
+    #hobbies, .sobremim-layout {
+        flex-direction: column; /* Empilha os blocos de conteúdo e imagem */
+        text-align: center;
+    }
+    .hobbies-content-left, .hobbies-image-right, .sobremim-content, .sobremim-image-left {
+        max-width: 90%; /* Ocupa quase toda a largura */
+        width: 100%;
+        text-align: center;
+    }
+    .hobbies-image-right img, .sobremim-image-left img {
+        max-width: 80%; /* Reduz o tamanho das imagens principais */
+        margin-top: 20px;
+    }
+
+    /* 4. POLAROIDS (Filmes e Séries) */
+    .polaroid-container {
+        gap: 20px;
+        padding-bottom: 50px; /* Reduz o padding inferior */
+    }
+    .polaroid {
+        width: 90%; /* Ocupa quase toda a largura para mostrar 1 por linha */
+        max-height: 450px; /* Mantém a altura inicial para celular */
+        
+        /* Remove a rotação para celular */
+        transform: none !important; 
+    }
+    .polaroid:hover {
+        transform: translateY(-5px) !important; /* Ajusta o hover para celular */
+    }
+    
+    /* 5. MÚSICA (#musica) */
+    .music-layout {
+        flex-direction: column; /* Empilha o gato/círculo e a grade de quadrados */
+        gap: 30px;
+    }
+    .photo-profile img {
+        width: 100%;
+        max-width: 250px;
+        height: auto;
+    }
+    .grid-quadrados {
+        grid-template-columns: 1fr; /* 1 quadrado por linha no celular */
+        width: 100%;
+        max-width: 300px;
+    }
+    .quadrado {
+        width: 100%; /* Ocupa a largura total da grid de 1 coluna */
+        height: auto;
+    }
+
+    /* 6. FOTOS (#fotos) */
+    /* Garante que o layout da câmera e fotos empilhe */
+    #fotos .music-layout { 
+        flex-direction: column;
+        gap: 40px;
+    }
+    /* Centraliza o bloco da Câmera (vsco-camera-block não está no HTML, mas ajustamos o vsco-profile) */
+    .vsco-profile {
+        width: 100%;
+        align-items: center;
+    }
+    .vsco-profile img {
+        width: 200px; /* Mantém um tamanho decente para a câmera */
+    }
+    
+    .grid-quadrados {
+        grid-template-columns: 1fr; /* 1 foto por linha para as Polaroids do VSCO */
+    }
+}
