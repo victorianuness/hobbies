@@ -1,0 +1,132 @@
+@font-face {
+    font-family: "Felythia";
+    src: url(fontes/Felythia.otf);
+}
+@font-face {
+    font-family:"Christmas" ;
+    src: url(fontes/Love\ Christmas.otf);
+}
+
+:root {
+    /* Variáveis Globais: ADICIONADAS */
+    --text-color: #555;        /* Cor para texto do body */
+    --pine: #F3E5F5;           /* Cor para o fundo do menu (Lilás) */
+    --active-btn: #D1C4E9;     /* Cor de fundo do botão ativo/hover (Lilás escuro) */
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Nunito', sans-serif;
+    color: var(--text-color);
+    /* SOLUÇÃO 1: Adicionar padding para compensar a altura do menu fixo (52px + espaço extra) */
+    padding-top: 60px; 
+}
+
+
+nav {
+    z-index: 1000;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* SOLUÇÃO 2: Variável --pine agora está definida */
+    background-color: var(--pine); 
+    color: #5e3c58; /* Mudei para uma cor do tema */
+    padding: 0 10px;
+    height: 52px;
+}
+
+nav ul {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+/* Essa é toda a parte do menu */
+.menu-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+nav a {
+    text-decoration: none;
+    color: #5e3c58;
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.4rem;
+    padding: 5px 15px;
+    border-radius: 20px;
+    transition: all 0.3s;
+}
+
+nav a:hover {
+    background-color: var(--active-btn);
+    color: #5e3c58;
+    transform: translateY(-2px);
+}
+
+section {
+    padding: 80px 20px;
+    min-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+/* Fim do Menu*/
+
+/* Cores de fundo para cada seção */
+
+#hobbies {
+    background-color: #f5c6e7;
+
+}
+
+#sobremim {
+    background-color: #ffedb7; /* Amarelo/Creme pastel */
+}
+
+#filmes {
+    background-color: #F3E5F5; /* Lilás suave */
+}
+
+#series {
+    background-color: #E3F2FD; /* Azul bebê suave */
+}
+
+#musica {
+    background-color: #E8F5E9; /* Verde menta suave */
+}
+
+#fotos {
+    background-color: #FCE4EC; /* Rosa um pouco mais forte */
+}
+/* Fim das cores de fundo */
+
+/*estilização da home*/
+ h1{
+    font-family: "Christmas";
+    font-size: 2.5rem;
+    color: #5e3c58;
+    margin-bottom: 20px;
+ }

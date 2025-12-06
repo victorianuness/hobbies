@@ -1,13 +1,26 @@
 @font-face {
-    font-family: "MyFont";
-    src: url(fontes/Felythia.otf));
+    font-family: "House";
+    src: url(fontes/Love\ House.otf);
+}
+
+@font-face {
+    font-family: "Christmas";
+    src: url(fontes/Love\ Christmas.otf);
+}
+
+@font-face {
+    font-family: "Perfect";
+    src: url(fontes/KGPerfectPenmanship.otf);
 }
 
 :root {
     /* Variáveis Globais: ADICIONADAS */
-    --text-color: #555;        /* Cor para texto do body */
-    --pine: #F3E5F5;           /* Cor para o fundo do menu (Lilás) */
-    --active-btn: #D1C4E9;     /* Cor de fundo do botão ativo/hover (Lilás escuro) */
+    --text-color: #555;
+    /* Cor para texto do body */
+    --pine: #F3E5F5;
+    /* Cor para o fundo do menu (Lilás) */
+    --active-btn: #D1C4E9;
+    /* Cor de fundo do botão ativo/hover (Lilás escuro) */
 }
 
 
@@ -25,7 +38,7 @@ body {
     font-family: 'Nunito', sans-serif;
     color: var(--text-color);
     /* SOLUÇÃO 1: Adicionar padding para compensar a altura do menu fixo (52px + espaço extra) */
-    padding-top: 60px; 
+    padding-top: 60px;
 }
 
 
@@ -39,8 +52,9 @@ nav {
     justify-content: center;
     align-items: center;
     /* SOLUÇÃO 2: Variável --pine agora está definida */
-    background-color: var(--pine); 
-    color: #5e3c58; /* Mudei para uma cor do tema */
+    background-color: var(--pine);
+    color: #5e3c58;
+    /* Mudei para uma cor do tema */
     padding: 0 10px;
     height: 52px;
 }
@@ -68,7 +82,7 @@ nav ul {
 nav a {
     text-decoration: none;
     color: #5e3c58;
-    font-family: 'Dancing Script', cursive;
+    font-family: 'House', sans-serif;
     font-size: 1.4rem;
     padding: 5px 15px;
     border-radius: 20px;
@@ -89,6 +103,7 @@ section {
     align-items: center;
     justify-content: center;
 }
+
 /* Fim do Menu*/
 
 /* Cores de fundo para cada seção */
@@ -99,30 +114,152 @@ section {
 }
 
 #sobremim {
-    background-color: #ffedb7; /* Amarelo/Creme pastel */
+    background-color: #ffedb7;
+    /* Amarelo/Creme pastel */
 }
 
 #filmes {
-    background-color: #F3E5F5; /* Lilás suave */
+    background-color: #F3E5F5;
+    /* Lilás suave */
 }
 
 #series {
-    background-color: #E3F2FD; /* Azul bebê suave */
+    background-color: #E3F2FD;
+    /* Azul bebê suave */
 }
 
 #musica {
-    background-color: #E8F5E9; /* Verde menta suave */
+    background-color: #E8F5E9;
+    /* Verde menta suave */
 }
 
 #fotos {
-    background-color: #FCE4EC; /* Rosa um pouco mais forte */
+    background-color: #FCE4EC;
+    /* Rosa um pouco mais forte */
 }
+
 /* Fim das cores de fundo */
 
 /*estilização da home*/
- h1{
-    font-family: 'MyFont', cursive;
+h1 {
+    font-family: "Christmas";
     font-size: 2.5rem;
     color: #5e3c58;
     margin-bottom: 20px;
- }
+    text-align: left;
+}
+
+h5 {
+    font-family: "house";
+    color: #422641
+}
+
+.hobbies-content-left {
+    max-width: 45;
+    text-align: left;
+}
+
+.hobbies-image-right img {
+    max-width: 45%;
+    height: auto;
+    text-align: right;
+}
+
+#hobbies {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.hobbies-image-right {
+    max-width: 45%;
+    text-align: right;
+}
+
+.hobbies-image-right img {
+    max-width: 70%;
+    height: auto;
+}
+
+/*fim da estilização da home*/
+
+/* Estilização do Sobre Mim*/
+
+h1{
+     font-size: 2.9em;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+p {
+    font-family: "Perfect";
+    font-size: 1.2rem;
+    line-height: 1.6;
+    color: #5e3c58;
+    margin-bottom: 15px;
+}
+
+.sobremim-content-right {
+    max-width: 45%;
+    text-align: right;
+}
+
+.sobremim-image-left img {
+    max-width: 45%;
+    height: auto;
+    text-align: left;
+
+}
+
+
+
+.sobremim-image-left {
+    max-width: 45%;
+    text-align: right;
+}
+
+.sobremim-image-left img {
+    max-width: 70%;
+    height: auto;
+}
+
+
+.section-title-sobremim {
+    font-family: "Christmas"; 
+    font-size: 3.9em; 
+    color: #5e3c58;
+    margin-bottom: 20px; /* Adiciona espaço abaixo do título */
+    text-align: center;
+    width: 100%;
+}
+
+h1 {
+    font-size: 3.9em;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.sobremim-layout {
+    display: flex;
+    flex-direction: row;        
+    justify-content: space-around; 
+    align-items: center;        
+    width: 100%;            
+    max-width: 1000px;
+}
+.sobremim-content {
+    max-width: 45%; 
+    text-align: left;
+    padding-right: 20px; 
+}
+
+#sobremim .container {
+    max-width: 45%;
+    text-align: center; 
+}
+
+#sobremim .container img {
+    max-width: 70%;
+    height: auto;
+}
