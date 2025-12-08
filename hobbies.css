@@ -412,7 +412,6 @@ h1 {
 }
 
 .quadrado {
-    /* CORREÇÃO APLICADA AQUI: */
     background: rgba(255, 255, 255, 0.6);
     padding: 10px;
     width: 160px;
@@ -430,12 +429,11 @@ h1 {
 }
 
 .quadrado img {
-    /* Define o tamanho da imagem para caber no quadrado */
     width: 100%; 
     height: 120px;
     object-fit: cover;
    
-    margin-bottom: 8cqmin; /* Espaço entre a imagem e o texto */
+    margin-bottom: 8cqmin;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
@@ -450,21 +448,7 @@ h1 {
 }
 
 /* Galeria VSCO*/
-/*.foto-cs {
-    position: absolute; /* Posição absoluta em relação ao #filmes 
-    top: 1700px;  Ajuste para descer a partir do topo da seção 
-    left: 150px; 
-    
-    /* Z-index para controle de camadas, se necessário 
-    z-index: 5; 
-}
 
-.foto-cs img {
-    /* Define o tamanho pequeno que você deseja para a imagem 
-    width: 100px; /* Exemplo: 100px de largura 
-    height: auto; 
-    display: block; /* Para garantir que o bloco funcione corretamente 
-}*/
 
 .fotos-text{
     font-family: 'Perfect', sans-serif;
@@ -480,62 +464,58 @@ h1 {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 8px; /* espaço entre imagem e texto */
+    gap: 8px; 
     margin-bottom: 10px;
 }
-/* --- Estilos para a Seção Fotos (#fotos) --- */
-#fotos {
-    /* Mantenha o display: flex; flex-direction: column; align-items: center; */
-    /* Para centralizar o título e o texto de "Meus Cliques" */
-}
 
-/* 1. Container Principal (music-layout) */
+
+
 .music-layout {
-    display: flex; /* Alinha o bloco da câmera e o grid de fotos lado a lado */
-    align-items: center; /* Alinha os blocos verticalmente no centro */
+    display: flex; 
+    align-items: center; 
     justify-content: center;
-    gap: 50px; /* Espaço entre a câmera e as fotos */
+    gap: 50px; 
     max-width: 1200px;
     width: 100%;
 }
 
-/* 2. Bloco da Câmera e Link */
+
 .vsco-camera-block {
     display: flex;
-    flex-direction: column; /* CRUCIAL: Empilha a imagem e o link */
-    align-items: center; /* CRUCIAL: Centraliza a imagem e o link horizontalmente */
+    flex-direction: column; 
+    align-items: center; 
     text-align: center;
-    max-width: 300px; /* Limita a largura do bloco */
+    max-width: 300px; 
 }
 
-/* 3. Estilo da Imagem da Câmera */
+
 .vsco-profile img {
-    width: 200px; /* Defina o tamanho que você deseja para a câmera */
+    width: 200px; 
     height: auto;
     display: block;
     margin-bottom: 10px;
 }
 
-/* 4. Estilo do Botão/Link */
-.btn-vsco { /* Mudei de .btn para .btn-vsco para evitar conflito com outros estilos */
+
+.btn-vsco { 
     text-decoration: none;
-    font-family: 'Perfect', sans-serif;
+    font-family: 'Perfect';
     color: #5e3c58;
     font-size: 1.1rem;
     font-weight: bold;
     padding: 8px 15px;
     border: 2px solid #5e3c58;
     border-radius: 20px;
-    transition: background-color 0.3s;
+    transition: 0.3s;
 }
 
 .btn-vsco:hover {
-    background-color: #E3F2FD; /* Cor de hover suave */
+    background-color: #E3F2FD; 
 }
 
-/* 5. Ajuste no vsco-profile (se for só a imagem) */
+
 .vsco-profile {
-    display: block; /* Garante que a div não interfira no alinhamento */
+    display: block; 
     margin-bottom: 10px;
 }
 /* Responsividade */
@@ -547,64 +527,62 @@ h1 {
             .section-title { font-size: 2.5rem; }
             .intro-text h1 { font-size: 3rem; }
         }
-        /* --- MEDIA QUERY PARA TELAS PEQUENAS (Max 768px) --- */
+
 @media (max-width: 768px) {
     
-    /* 1. LAYOUT PRINCIPAL E TÍTULOS */
+  
     section {
-        padding: 40px 10px; /* Reduz o padding vertical nas seções */
-        min-height: auto; /* Remove altura mínima para seções menores */
+        padding: 40px 10px; 
+        min-height: auto; 
     }
     
     h1 {
-        font-size: 2.5em; /* Diminui o tamanho dos títulos principais */
+        font-size: 2.5em; 
     }
 
-    /* 2. MENU DE NAVEGAÇÃO */
+
     .menu-container {
         gap: 10px;
         justify-content: space-around;
         padding: 5px 0;
     }
     nav a {
-        font-size: 1rem; /* Diminui o tamanho da fonte do menu */
+        font-size: 1rem; 
         padding: 5px 8px;
     }
 
-    /* 3. SEÇÃO #hobbies (Home) e #sobremim */
+    
     #hobbies, .sobremim-layout {
-        flex-direction: column; /* Empilha os blocos de conteúdo e imagem */
+        flex-direction: column; 
         text-align: center;
     }
     .hobbies-content-left, .hobbies-image-right, .sobremim-content, .sobremim-image-left {
-        max-width: 90%; /* Ocupa quase toda a largura */
+        max-width: 90%; 
         width: 100%;
         text-align: center;
     }
     .hobbies-image-right img, .sobremim-image-left img {
-        max-width: 80%; /* Reduz o tamanho das imagens principais */
+        max-width: 80%; 
         margin-top: 20px;
     }
 
-    /* 4. POLAROIDS (Filmes e Séries) */
+    
     .polaroid-container {
         gap: 20px;
-        padding-bottom: 50px; /* Reduz o padding inferior */
+        padding-bottom: 50px; 
     }
     .polaroid {
-        width: 90%; /* Ocupa quase toda a largura para mostrar 1 por linha */
-        max-height: 450px; /* Mantém a altura inicial para celular */
+        width: 90%; 
+        max-height: 450px; 
         
-        /* Remove a rotação para celular */
         transform: none !important; 
     }
     .polaroid:hover {
-        transform: translateY(-5px) !important; /* Ajusta o hover para celular */
+        transform: translateY(-5px) !important; 
     }
     
-    /* 5. MÚSICA (#musica) */
     .music-layout {
-        flex-direction: column; /* Empilha o gato/círculo e a grade de quadrados */
+        flex-direction: column; 
         gap: 30px;
     }
     .photo-profile img {
@@ -613,31 +591,30 @@ h1 {
         height: auto;
     }
     .grid-quadrados {
-        grid-template-columns: 1fr; /* 1 quadrado por linha no celular */
+        grid-template-columns: 1fr; 
         width: 100%;
         max-width: 300px;
     }
     .quadrado {
-        width: 100%; /* Ocupa a largura total da grid de 1 coluna */
+        width: 100%; 
         height: auto;
     }
 
-    /* 6. FOTOS (#fotos) */
-    /* Garante que o layout da câmera e fotos empilhe */
+    
     #fotos .music-layout { 
         flex-direction: column;
         gap: 40px;
     }
-    /* Centraliza o bloco da Câmera (vsco-camera-block não está no HTML, mas ajustamos o vsco-profile) */
+    
     .vsco-profile {
         width: 100%;
         align-items: center;
     }
     .vsco-profile img {
-        width: 200px; /* Mantém um tamanho decente para a câmera */
+        width: 200px; 
     }
     
     .grid-quadrados {
-        grid-template-columns: 1fr; /* 1 foto por linha para as Polaroids do VSCO */
+        grid-template-columns: 1fr; 
     }
 }
